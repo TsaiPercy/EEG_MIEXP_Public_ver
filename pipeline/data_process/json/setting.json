@@ -1,0 +1,57 @@
+{
+    "data_info": {
+        "SUBJECT_NAME": "S01",
+        "sfreq": 500,
+        "IF_DATA_RELOAD": true,
+        "data_find_folder_path": "ori_csv_data/S01",
+        "label_encoder_path": "../label_encoder/label_encoder_6_7_8_9.pkl"
+    },
+    "choose_channels": {
+        "MODE": "13_FC_mid_Pz",
+        "NAMES": []
+    },
+    "choose_markers": {
+        "NAMES": [
+            "MI_CUE_LEFT_HAND",
+            "MI_CUE_RIGHT_HAND",
+            "MI_CUE_BOTH_FEET",
+            "MI_CUE_TONGUE"
+        ]
+    },
+    "preprocessing_trues": {
+        "find_bad_channel_true": false,
+        "filter_true": true,
+        "reference_true": false,
+        "ICA_true": false
+    },
+    "process_outlier": {
+        "use": false,
+        "detect_method": "zscore",
+        "replace_strategy": "neighbor",
+        "prt_info": false
+    },
+    "data_normalization_standardization": {
+        "use": true,
+        "method": "per_channel_demean"
+    },
+    "time_jitter_augmentation": {
+        "use": true,
+        "max_shift_sec": 0.2,
+        "augment_factor": 3
+    },
+    "get_trail_data": {
+        "tmin": -3.0,
+        "tmax": 3.0,
+        "base_time": [
+            -2.0,
+            -1.0
+        ]
+    },
+    "all_prt_info": {
+        "get_datas": false,
+        "process_before_mne_multi": false,
+        "process_outlier": false,
+        "get_mne_data_multi": false,
+        "get_trail_data_multi": false
+    }
+}

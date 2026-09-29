@@ -1,0 +1,286 @@
+{
+    "mode_control": {
+        "all_mode": [
+            "training",
+            "testing",
+            "calibration"
+        ],
+        "current_using": "training",
+        "label_encoder_path": "label_encoder.pkl",
+        "training_model_save_path": "",
+        "testing_model_path": "",
+        "calibration_model_load_path": "",
+        "calibration_model_save_path": ""
+    },
+    "data_info": {
+        "SUBJECT_NAME": "S03",
+        "SUBJECT_num": 5,
+        "DESCRIPTION": "MI + ME all data, training mode",
+        "sfreq": 500,
+        "path_json_path": "./json/path.json",
+        "IF_DATA_RELOAD": false,
+        "data_find_folder_path": "./data/no_use/S03",
+        "IF_RECORD_RESULT": true,
+        "RESULT_JSON_PATH": "./result_record/ablation/S03/all_True.json",
+        "note": "epoch 60"
+    },
+    "choose_channels": {
+        "MODE": "11_TC_mid",
+        "NUM": 11,
+        "NAMES": [
+            "FC3",
+            "FCz",
+            "FC4",
+            "T7",
+            "C3",
+            "Cz",
+            "C4",
+            "T8",
+            "CP3",
+            "CPz",
+            "CP4"
+        ]
+    },
+    "choose_markers": {
+        "NUM": 4,
+        "NAMES": [
+            "MI_CUE_LEFT_HAND",
+            "MI_CUE_RIGHT_HAND",
+            "MI_CUE_BOTH_FEET",
+            "MI_CUE_TONGUE"
+        ],
+        "marker_ori": [
+            6,
+            7,
+            8,
+            9
+        ],
+        "marker_transform": [
+            0,
+            1,
+            2,
+            3
+        ]
+    },
+    "process_outlier": {
+        "use": true,
+        "all_detect_method": [
+            "iqr",
+            "zscore"
+        ],
+        "all_replace_strategy": [
+            "median",
+            "mean",
+            "neighbor"
+        ],
+        "detect_method": "zscore",
+        "replace_strategy": "neighbor",
+        "prt_info": false
+    },
+    "data_normalization_standardization": {
+        "comment": "只做了zero_mean，其他兩個還沒做",
+        "use": true,
+        "norm_method": [
+            "Min_Max"
+        ],
+        "std_method": [
+            "z_score",
+            "zero_mean"
+        ],
+        "choose_norm": "",
+        "choose_std": "zero_mean"
+    },
+    "preprocessing_trues": {
+        "find_bad_channel_true": false,
+        "filter_true": true,
+        "reference_true": true,
+        "ICA_true": false
+    },
+    "get_trail_data": {
+        "tmin": -3.0,
+        "tmax": 3.25,
+        "base_time": [
+            -2.0,
+            -1.0
+        ]
+    },
+    "channel_aug": {
+        "ML": true,
+        "DL": true
+    },
+    "all_prt_info": {
+        "get_datas": false,
+        "process_before_mne_multi": false,
+        "process_outlier": false,
+        "get_mne_data_multi": false,
+        "get_trail_data_multi": false
+    },
+    "training_part": {},
+    "testing_part": {},
+    "traditional_ML_classifier_method": {
+        "comment": "考慮把ebd的arg放入background",
+        "all_method": [
+            "LDA",
+            "SVM"
+        ],
+        "current_using": [],
+        "LDA": {
+            "trails_target_data_DESCRIPTION": "choose_channels",
+            "n_splits": 5,
+            "if_normailze": true,
+            "embedding_method": {
+                "all_method": [
+                    "CSP",
+                    "Riemannian",
+                    "Hjorth",
+                    "DE",
+                    "PSD"
+                ],
+                "current_using": [
+                    "CSP",
+                    "Riemannian",
+                    "Hjorth",
+                    "DE",
+                    "PSD"
+                ],
+                "CSP": {
+                    "n_components": 6,
+                    "reg": "ledoit_wolf",
+                    "log": true,
+                    "norm_trace": true
+                },
+                "Riemannian": {
+                    "estimator": "lwf"
+                },
+                "Hjorth": {},
+                "DE": {},
+                "PSD": {}
+            }
+        },
+        "SVM": {
+            "kernels": [
+                "linear",
+                "rbf",
+                "poly"
+            ],
+            "trails_target_data_DESCRIPTION": "choose_channels",
+            "n_splits": 5,
+            "if_normailze": true,
+            "embedding_method": {
+                "all_method": [
+                    "CSP",
+                    "Riemannian",
+                    "Hjorth",
+                    "DE",
+                    "PSD"
+                ],
+                "current_using": [
+                    "CSP",
+                    "Riemannian",
+                    "Hjorth",
+                    "DE",
+                    "PSD"
+                ],
+                "CSP": {
+                    "n_components": 6,
+                    "reg": "ledoit_wolf",
+                    "log": true,
+                    "norm_trace": true
+                },
+                "Riemannian": {
+                    "estimator": "lwf"
+                },
+                "Hjorth": {},
+                "DE": {},
+                "PSD": {}
+            }
+        }
+    },
+    "DL_classifier_method": {
+        "all_method": [
+            "EEGNet"
+        ],
+        "current_using": [
+            "EEGNet"
+        ],
+        "EEGNet": {
+            "trails_target_data_DESCRIPTION": "choose_channels + add_C3_C4 + diff_C3_C4 + diff_C4_C3 + Cz*2",
+            "all_mode": [
+                "training",
+                "calibration"
+            ],
+            "mode": "training",
+            "model_load_path": "",
+            "model_save_path": "",
+            "n_classes": 4,
+            "n_splits": 6,
+            "if_normailze": true,
+            "ALL_MARKER_MEAN": [
+                [],
+                [],
+                [],
+                []
+            ],
+            "ALL_MARKER_STD": [
+                [],
+                [],
+                [],
+                []
+            ],
+            "embedding_method": {
+                "all_method": [
+                    "CSP",
+                    "Riemannian",
+                    "Hjorth",
+                    "DE",
+                    "PSD"
+                ],
+                "current_using": [
+                    "CSP",
+                    "Riemannian",
+                    "Hjorth",
+                    "DE",
+                    "PSD"
+                ],
+                "CSP": {
+                    "n_components": 5,
+                    "reg": "ledoit_wolf",
+                    "log": true,
+                    "norm_trace": true
+                },
+                "Riemannian": {
+                    "estimator": "lwf"
+                }
+            },
+            "init": {
+                "comment": "S_kernSizes 已修正",
+                "F1": 4,
+                "D": 2,
+                "F2": 8,
+                "T_kernSizes": [
+                    32,
+                    64,
+                    128,
+                    200,
+                    256,
+                    512
+                ],
+                "S_kernSizes": [],
+                "dropout": 0.55
+            },
+            "augment": {
+                "noise_std": 0.01,
+                "channel_dropout": 0.1
+            },
+            "using": {
+                "n_epochs": 60,
+                "batch_size": 16,
+                "seed": 42,
+                "lr": 0.005,
+                "weight_decay": 0.0001,
+                "max_grad_norm": 1.0
+            }
+        }
+    },
+    "all_accuracy": {}
+}

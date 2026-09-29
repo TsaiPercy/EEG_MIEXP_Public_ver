@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.venv/
+
+# 原始與處理後的腦波資料（不公開）
+ori_csv_data/
+pt_data/
+output/
+*.csv
+!results/*.csv
+*.pt
+
+# 模型與執行紀錄
+*.pth
+logs/
+result/

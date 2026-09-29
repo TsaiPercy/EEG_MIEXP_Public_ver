@@ -1,0 +1,5 @@
+subject,phase,run,acc
+S01,train,run1,0.601
+S01,train,run2,0.643
+S01,test,run1,0.58
+S01,test,run2,0.614

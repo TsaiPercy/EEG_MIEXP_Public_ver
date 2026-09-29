@@ -1,0 +1,10 @@
+numpy
+pandas
+torch
+mne
+scikit-learn
+
+# legacy/ 需要
+scipy
+pyriemann
+matplotlib

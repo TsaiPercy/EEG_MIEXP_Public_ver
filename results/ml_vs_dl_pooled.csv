@@ -1,0 +1,9 @@
+condition,LDA,EEGNet
+all_on,0.809,0.875
+all_off,0.317,0.398
+remove_filter_true,0.803,0.99
+remove_reference_true,0.842,0.784
+remove_process_outlier,0.503,0.752
+remove_data_normalization_standardization,0.808,0.888
+remove_if_normailze,0.38,0.49
+remove_channel_aug,0.809,0.86

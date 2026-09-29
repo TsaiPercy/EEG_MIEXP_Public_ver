@@ -1,0 +1,11 @@
+{
+    "_comment": "由 data_processor.py 依 setting.json 的 data_find_folder_path 自動掃描產生；以下為格式範例",
+    "data_find_folder_path": "ori_csv_data/S01",
+    "data_paths": {
+        "NUM": 2,
+        "PATHS": [
+            "ori_csv_data/S01/MI/run_1/recording_1.csv",
+            "ori_csv_data/S01/MI/run_2/recording_2.csv"
+        ]
+    }
+}

@@ -1,0 +1,61 @@
+{
+    "mode_control": {
+        "current_using": "testing",
+        "label_encoder_path": "../label_encoder/label_encoder_6_7_8_9.pkl"
+    },
+    "data_info": {
+        "SUBJECT_NAME": "S01",
+        "sfreq": 500,
+        "data_find_folder_path": "./pt_data",
+        "IF_RECORD_RESULT": true,
+        "RESULT_JSON_PATH": "./result/test_0/S01_test.json"
+    },
+    "channel_aug": false,
+    "window_slice": {
+        "use": true,
+        "window_time": 1.0,
+        "step_time": 0.4
+    },
+    "DL_classifier_method": {
+        "current_using": [
+            "EEGNet"
+        ],
+        "EEGNet": {
+            "model_load_path": "./result/train_0/EEGNet_models/S01_train.pth",
+            "model_save_path": "",
+            "n_splits": 3,
+            "if_normailze": false,
+            "mode": "testing",
+            "n_classes": 4,
+            "ALL_MARKER_MEAN": [],
+            "ALL_MARKER_STD": [],
+            "init": {
+                "F1": 4,
+                "D": 2,
+                "F2": 8,
+                "T_kernSizes": [
+                    32,
+                    64,
+                    128,
+                    200,
+                    256,
+                    512
+                ],
+                "S_kernSizes": [],
+                "dropout": 0.55
+            },
+            "augment": {
+                "noise_std": 0.01,
+                "channel_dropout": 0.1
+            },
+            "using": {
+                "n_epochs": 60,
+                "batch_size": 16,
+                "seed": 42,
+                "lr": 5e-3,
+                "weight_decay": 1e-4,
+                "max_grad_norm": 1.0
+            }
+        }
+    }
+}

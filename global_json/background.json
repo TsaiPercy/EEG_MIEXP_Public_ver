@@ -1,0 +1,111 @@
+{
+    "event_markers": {
+        "EXPERIMENT_START": 1,
+        "RUN_START": 1,
+        "RUN_END": 2,
+        "EYE_OPEN_CUE": 3,
+        "EYE_CLOSED_CUE": 4,
+        "MI_TRIAL_FIXATION": 5,
+        "MI_CUE_LEFT_HAND": 6,
+        "MI_CUE_RIGHT_HAND": 7,
+        "MI_CUE_BOTH_FEET": 8,
+        "MI_CUE_TONGUE": 9,
+        "PVT_FIXATION": 10,
+        "PVT_CUE": 11,
+        "PVT_RESPONSE": 12,
+        "PVT_NO_RESPONSE": 13
+    },
+    "channel": {
+        "all_channels": {
+            "NUM" : 32,
+            "NAMES" : [
+                                 "Fp1","Fp2",
+                            "AF3",          "AF4",
+                        "F7", "F3",  "Fz",  "F4",  "F8",
+                        "FT7","FC3", "FCz", "FC4", "FT8",
+                        "T7", "C3",  "Cz",  "C4",  "T8",
+                        "TP7","CP3", "CPz", "CP4", "TP8",
+                        "P7", "P3",  "Pz",  "P4",  "P8",
+                             "O1",   "Oz",   "O2"
+                    ]
+        },
+        "9_mid": {
+            "NUM": 9,
+            "NAMES": [
+                "FC3",  "FCz",  "FC4",
+                "C3",   "Cz",   "C4",
+                "CP3",  "CPz",  "CP4"
+            ]
+        },
+        "13_FC_mid_Pz": {
+            "NUM": 13,
+            "NAMES": [
+                "F3",   "Fz",   "F4",
+                "FC3",  "FCz",  "FC4",
+                "C3",   "Cz",   "C4",
+                "CP3",  "CPz",  "CP4",
+                        "Pz"
+            ]
+        },
+        "7_TC_row" : {
+            "NUM": 7,
+            "NAMES":[
+                                "FCz",
+                    "T7","C3",  "Cz",   "C4","T8",
+                                "CPz"
+            ]
+        },
+        "11_TC_mid" : {
+            "NUM": 11,
+            "NAMES":[
+                            "FC3",  "FCz",  "FC4",
+                    "T7",   "C3",   "Cz",   "C4",   "T8",
+                            "CP3",  "CPz",  "CP4"
+            ]
+        }
+    },
+    "process_outlier": {
+        "all_detect_method": [
+            "iqr",
+            "zscore"
+        ],
+        "all_replace_strategy": [
+            "median",
+            "mean",
+            "neighbor"
+        ]
+    },
+    "data_normalization_standardization": {
+        "norm_method": [
+            "Min_Max"
+        ],
+        "std_method": [
+            "z_score",
+            "zero_mean"
+        ]
+    },
+    "traditional_ML_classifier_method": {
+        "comment": "考慮把ebd的arg放入background",
+        "all_method": [
+            "LDA",
+            "SVM"
+        ],
+        "embedding_method": {
+            "all_method": [
+                "CSP",
+                "Riemannian",
+                "Hjorth",
+                "DE",
+                "PSD"
+            ]
+        }
+    },
+    "DL_classifier_method": {
+        "all_method": [
+            "EEGNet"
+        ]
+    },
+    "no_use": {
+
+    }
+}
